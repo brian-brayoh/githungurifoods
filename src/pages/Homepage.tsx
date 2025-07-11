@@ -9,19 +9,20 @@ const Homepage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[600px] bg-gradient-to-br from-primary/10 to-accent/5 overflow-hidden">
+      <section className="relative h-[600px] overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={heroImage} 
-            alt="Delicious Nyama Choma"
-            className="w-full h-full object-cover opacity-90"
+            alt="Delicious Nyama Choma on the grill"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center 30%' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-earth-brown/80 to-earth-brown/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-earth-brown/90 to-earth-brown/40"></div>
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <div className="max-w-2xl text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-md">
               Authentic Kenyan
               <span className="text-golden-yellow block">Nyama Choma</span>
             </h1>
