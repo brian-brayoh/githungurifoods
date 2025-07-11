@@ -1,9 +1,30 @@
-import { ArrowRight, MapPin, Phone, Clock } from 'lucide-react';
+import { ArrowRight, MapPin, Phone, Clock, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import heroImage from '@/assets/hero-nyama-choma.jpeg';
 import restaurantImage from '@/assets/restaurant-interior.jpg';
+
+const videos = [
+  {
+    id: 1,
+    title: 'Nyama Choma Grilling',
+    src: '/images/WhatsApp Video 2025-07-11 at 14.10.44 (1).mp4',
+    thumbnail: heroImage, // You might want to add actual thumbnails later
+  },
+  {
+    id: 2,
+    title: 'Restaurant Ambience',
+    src: '/images/WhatsApp Video 2025-07-11 at 14.10.44.mp4',
+    thumbnail: restaurantImage,
+  },
+  {
+    id: 3,
+    title: 'Food Preparation',
+    src: '/images/WhatsApp Video 2025-07-11 at 14.10.45.mp4',
+    thumbnail: restaurantImage,
+  },
+];
 
 const Homepage = () => {
   return (
@@ -95,6 +116,44 @@ const Homepage = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Gallery Section */}
+      <section className="py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Experience Githunguri Foods
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Take a look at our mouth-watering dishes and vibrant atmosphere
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {videos.map((video) => (
+              <div key={video.id} className="group relative rounded-lg overflow-hidden shadow-lg">
+                <video 
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                  poster={video.thumbnail}
+                  controls
+                  preload="metadata"
+                >
+                  <source src={video.src} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                    <Play className="h-8 w-8 text-white" fill="currentColor" />
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                  <h3 className="text-white font-semibold text-lg">{video.title}</h3>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
