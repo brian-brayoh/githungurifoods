@@ -6,6 +6,7 @@ const Menu = () => {
     {
       title: "Nyama Choma Specials",
       description: "Premium cuts, expertly grilled to perfection",
+      image: "/images/githunguri foods_page-0001.jpg",
       items: [
         {
           name: "Nyama Choma (Goat) - 1/2 KG",
@@ -35,6 +36,7 @@ const Menu = () => {
     {
       title: "Accompaniments",
       description: "The perfect sides for your nyama choma",
+      image: "/images/WhatsApp Image 2025-07-11 at 14.10.43.jpeg",
       items: [
         {
           name: "Ugali (Per Serving)",
@@ -74,6 +76,7 @@ const Menu = () => {
     {
       title: "Combos & Specials",
       description: "Perfect meals for one or to share",
+      image: "/images/githunguri foods_page-0001.jpg",
       items: [
         {
           name: "Nyama Choma Combo",
@@ -97,6 +100,7 @@ const Menu = () => {
     {
       title: "Beverages",
       description: "Refresh yourself with our selection of drinks",
+      image: "/images/WhatsApp Image 2025-07-11 at 14.10.43.jpeg",
       items: [
         {
           name: "Soda (300ml)",
@@ -124,17 +128,22 @@ const Menu = () => {
 
   return (
     <div className="min-h-screen py-12 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Our Menu
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Premium nyama choma served with the freshest ugali, chips, and kachumbari
-          </p>
+      {/* Hero Section */}
+      <div className="relative h-64 md:h-96 mb-12 overflow-hidden">
+        <img 
+          src="/images/githunguri foods_page-0001.jpg" 
+          alt="Githunguri Nyama Choma"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+          <div className="text-center text-white px-4">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">Our Menu</h1>
+            <p className="text-xl md:text-2xl">Premium nyama choma served with the freshest ugali, chips, and kachumbari</p>
+          </div>
         </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Menu Categories */}
         <div className="space-y-16">
           {menuCategories.map((category, index) => (
@@ -144,13 +153,28 @@ const Menu = () => {
                 <p className="text-muted-foreground mt-2">{category.description}</p>
               </div>
               
+              {/* Category Image */}
+              {category.image && (
+                <div className="max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg">
+                  <img 
+                    src={category.image} 
+                    alt={category.title}
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
+              )}
+              
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {category.items.map((item, itemIndex) => (
-                  <Card key={itemIndex} className="h-full flex flex-col shadow-sm hover:shadow-md transition-shadow">
+                  <Card key={itemIndex} className="h-full flex flex-col shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+                    {/* Placeholder for item-specific images */}
+                    <div className="h-40 bg-gray-100 flex items-center justify-center text-gray-400">
+                      <span>Photo: {item.name}</span>
+                    </div>
                     <CardHeader className="pb-2">
                       <div className="flex justify-between items-start">
                         <CardTitle className="text-lg">{item.name}</CardTitle>
-                        <span className="font-bold text-primary">{item.price}</span>
+                        <span className="font-bold text-primary whitespace-nowrap ml-2">{item.price}</span>
                       </div>
                     </CardHeader>
                     <CardContent className="flex-grow">
@@ -168,6 +192,25 @@ const Menu = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Image Gallery Section */}
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold text-center mb-8">Our Food Gallery</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              "/images/githunguri foods_page-0001.jpg",
+              "/images/WhatsApp Image 2025-07-11 at 14.10.43.jpeg"
+            ].map((img, idx) => (
+              <div key={idx} className="aspect-square overflow-hidden rounded-lg shadow-md">
+                <img 
+                  src={img} 
+                  alt={`Gallery ${idx + 1}`}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Special Note */}
