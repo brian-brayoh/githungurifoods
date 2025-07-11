@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import traditionalMealImage from '@/assets/traditional-meal.jpg';
+import logoImage from '@/assets/logo.png';
+import grilledMeatImage from '@/assets/grilled-meat.jpg';
 
 const Menu = () => {
   const menuCategories = [
@@ -139,6 +141,24 @@ const Menu = () => {
   return (
     <div className="min-h-screen py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hero Section with Logo and Food Image */}
+        <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="w-full md:w-1/2">
+            <img 
+              src={logoImage} 
+              alt="GITHUNGURI Fresh Quality Foods" 
+              className="w-full max-w-md mx-auto"
+            />
+          </div>
+          <div className="w-full md:w-1/2">
+            <img 
+              src={grilledMeatImage} 
+              alt="Delicious grilled meats from GITHUNGURI" 
+              className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
