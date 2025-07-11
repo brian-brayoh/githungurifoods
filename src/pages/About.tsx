@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock, Users } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Users, Map } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import restaurantImage from '@/assets/restaurant-interior.jpg';
@@ -128,37 +128,101 @@ const About = () => {
 
             <Card className="shadow-soft">
               <CardHeader>
-                <CardTitle className="text-foreground">Branch Locations</CardTitle>
+                <CardTitle className="text-foreground">Our Locations</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Main Branch</h4>
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="h-5 w-5 text-primary mt-1" />
-                    <div>
-                      <p className="text-muted-foreground">
-                        [Main Branch Address]<br />
-                        Githunguri, Kiambu County
-                      </p>
-                      <Button variant="outline" size="sm" className="mt-2">
-                        View on Map
-                      </Button>
+                {/* Greenspot Gardens / Greenleaf Ruiru */}
+                <div className="border-b pb-6 mb-6">
+                  <h4 className="font-semibold text-lg text-foreground mb-3 flex items-center">
+                    <MapPin className="h-5 w-5 text-primary mr-2" />
+                    Greenspot Gardens / Greenleaf Ruiru
+                  </h4>
+                  <div className="pl-7 space-y-2">
+                    <p className="text-muted-foreground">
+                      On your way to Kamakis, Ruiru
+                    </p>
+                    <div className="aspect-w-16 aspect-h-9 w-full h-48 mt-3 rounded-lg overflow-hidden">
+                      <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.854272156484!2d36.9623158!3d-1.2620679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f8b5d5d5e5d%3A0x5e8e3e5d5d5e5d5e!2sGreenspot%20Gardens%2C%20Ruiru!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        className="rounded-lg"
+                      ></iframe>
                     </div>
                   </div>
                 </div>
 
+                {/* Midnight Kimbo */}
+                <div className="border-b pb-6 mb-6">
+                  <h4 className="font-semibold text-lg text-foreground mb-3 flex items-center">
+                    <MapPin className="h-5 w-5 text-primary mr-2" />
+                    Midnight Kimbo
+                  </h4>
+                  <div className="pl-7 space-y-2">
+                    <p className="text-muted-foreground">
+                      Kimbo, Kiambu Road
+                    </p>
+                    <div className="aspect-w-16 aspect-h-9 w-full h-48 mt-3 rounded-lg overflow-hidden">
+                      <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.854272156484!2d36.9623158!3d-1.2620679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f8b5d5d5e5d%3A0x5e8e3e5d5d5e5d5e!2sKimbo%2C%20Kiambu%20Road!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        className="rounded-lg"
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Daylight Thika */}
+                <div className="border-b pb-6 mb-6">
+                  <h4 className="font-semibold text-lg text-foreground mb-3 flex items-center">
+                    <MapPin className="h-5 w-5 text-primary mr-2" />
+                    Daylight Thika
+                  </h4>
+                  <div className="pl-7 space-y-2">
+                    <p className="text-muted-foreground">
+                      Thika Town
+                    </p>
+                    <div className="aspect-w-16 aspect-h-9 w-full h-48 mt-3 rounded-lg overflow-hidden">
+                      <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.1912345678900!2d37.0834567!3d-1.0432100!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f8b5d5d5e5d%3A0x5e8e3e5d5d5e5d5e!2sThika%20Town!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        className="rounded-lg"
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mfalme/Summit Kenol */}
                 <div>
-                  <h4 className="font-semibold text-foreground mb-2">Second Branch</h4>
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="h-5 w-5 text-primary mt-1" />
-                    <div>
-                      <p className="text-muted-foreground">
-                        [Second Branch Address]<br />
-                        [Location Details]
-                      </p>
-                      <Button variant="outline" size="sm" className="mt-2">
-                        View on Map
-                      </Button>
+                  <h4 className="font-semibold text-lg text-foreground mb-3 flex items-center">
+                    <MapPin className="h-5 w-5 text-primary mr-2" />
+                    Mfalme/Summit Kenol
+                  </h4>
+                  <div className="pl-7 space-y-2">
+                    <p className="text-muted-foreground">
+                      On your way to Murang'a, Kenol
+                    </p>
+                    <div className="aspect-w-16 aspect-h-9 w-full h-48 mt-3 rounded-lg overflow-hidden">
+                      <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.1912345678900!2d37.0834567!3d-1.0432100!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f8b5d5d5e5d%3A0x5e8e3e5d5d5e5d5e!2sKenol%2C%20Murang%27a%20Road!5e0!3m2!1sen!2ske!4v1620000000000!5m2!1sen!2ske"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        className="rounded-lg"
+                      ></iframe>
                     </div>
                   </div>
                 </div>
