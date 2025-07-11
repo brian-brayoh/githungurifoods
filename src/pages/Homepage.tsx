@@ -9,24 +9,29 @@ const videos = [
   {
     id: 1,
     title: 'Nyama Choma Grilling',
-    src: '/images/WhatsApp Video 2025-07-11 at 14.10.44 (1).mp4',
+    src: encodeURI('/images/WhatsApp Video 2025-07-11 at 14.10.44 (1).mp4'),
     thumbnail: heroImage, // You might want to add actual thumbnails later
   },
   {
     id: 2,
     title: 'Restaurant Ambience',
-    src: '/images/WhatsApp Video 2025-07-11 at 14.10.44.mp4',
+    src: encodeURI('/images/WhatsApp Video 2025-07-11 at 14.10.44.mp4'),
     thumbnail: restaurantImage,
   },
   {
     id: 3,
     title: 'Food Preparation',
-    src: '/images/WhatsApp Video 2025-07-11 at 14.10.45.mp4',
+    src: encodeURI('/images/WhatsApp Video 2025-07-11 at 14.10.45.mp4'),
     thumbnail: restaurantImage,
   },
 ];
 
 const Homepage = () => {
+  const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = e.target as HTMLVideoElement;
+    console.error('Error loading video:', video.error);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -140,6 +145,7 @@ const Homepage = () => {
                   poster={video.thumbnail}
                   controls
                   preload="metadata"
+                  onError={handleVideoError}
                 >
                   <source src={video.src} type="video/mp4" />
                   Your browser does not support the video tag.
