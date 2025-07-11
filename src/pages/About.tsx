@@ -10,10 +10,10 @@ const About = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            About Githunguri Foods
+            Githunguri Nyama Choma Specialists
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Bringing authentic Kenyan flavors to your table with passion, tradition, and community spirit.
+            Home of the juiciest nyama choma, served with steaming ugali, crispy chips, and fresh kachumbari
           </p>
         </div>
 
@@ -21,33 +21,95 @@ const About = () => {
         <section className="mb-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-foreground mb-6">Our Story</h2>
+              <h2 className="text-3xl font-bold text-foreground mb-6">Our Passion for Perfect Nyama Choma</h2>
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p>
-                  Githunguri Foods was born from a deep love for authentic Kenyan cuisine and a desire to 
-                  share our rich culinary heritage with the community. Our journey began with a simple 
-                  vision: to serve the finest nyama choma and traditional Kenyan dishes using recipes 
-                  passed down through generations.
+                  At Githunguri Foods, we live and breathe nyama choma. Our journey began with a simple 
+                  mission: to serve the most succulent, perfectly grilled meats that keep our customers 
+                  coming back for more. Every cut is carefully selected, expertly seasoned, and slow-grilled 
+                  to perfection over an open flame.
                 </p>
                 <p>
-                  What started as a small family business has grown into a beloved local restaurant, 
-                  but we've never lost sight of our roots. Every dish we serve is prepared with the 
-                  same care and attention to detail that our founders brought to their family table.
+                  What sets us apart is our attention to detail. Our signature nyama choma is served with 
+                  freshly made ugali, golden crispy chips, and our famous kachumbari made from the freshest 
+                  tomatoes, onions, and coriander. It's not just a meal - it's an experience that celebrates 
+                  Kenya's rich culinary heritage.
                 </p>
                 <p>
-                  We believe that food brings people together, and our warm, welcoming atmosphere 
-                  reflects the spirit of Kenyan hospitality. Whether you're a long-time fan of Kenyan 
-                  cuisine or trying it for the first time, we're here to make your experience memorable.
+                  We believe in keeping it simple and authentic. No fancy gimmicks, just perfectly grilled 
+                  meat, cooked the traditional way, served with love and the perfect accompaniments. 
+                  Whether you're a nyama choma connoisseur or trying it for the first time, we promise 
+                  an unforgettable taste of Kenya.
                 </p>
               </div>
             </div>
-            <div>
+            <div className="space-y-6">
               <img 
-                src={restaurantImage} 
-                alt="Our Restaurant"
-                className="w-full h-[400px] object-cover rounded-lg shadow-warm"
+                src="/images/nyama-choma.jpg" 
+                alt="Delicious nyama choma on the grill"
+                className="w-full h-[300px] object-cover rounded-lg shadow-warm"
               />
+              <div className="grid grid-cols-2 gap-4">
+                <img 
+                  src="/images/ugali-served.jpg" 
+                  alt="Freshly made ugali"
+                  className="w-full h-40 object-cover rounded-lg"
+                />
+                <img 
+                  src="/images/kachumbari.jpg" 
+                  alt="Fresh kachumbari salad"
+                  className="w-full h-40 object-cover rounded-lg"
+                />
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* Our Specialties */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-foreground text-center mb-12">Our Specialties</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="text-center shadow-soft hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-16 h-16 bg-gradient-warm rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-foreground">Nyama Choma</h3>
+                <p className="text-muted-foreground">
+                  Tender cuts of beef, goat, or chicken, expertly marinated and slow-grilled to perfection
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center shadow-soft hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-16 h-16 bg-gradient-warm rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-foreground">Ugali & Chips</h3>
+                <p className="text-muted-foreground">
+                  Freshly made ugali and crispy golden chips - the perfect accompaniment to our nyama choma
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center shadow-soft hover:shadow-lg transition-shadow">
+              <CardContent className="p-6">
+                <div className="w-16 h-16 bg-gradient-warm rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-foreground">Kachumbari</h3>
+                <p className="text-muted-foreground">
+                  Our signature fresh tomato and onion salad with a special blend of herbs and spices
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
