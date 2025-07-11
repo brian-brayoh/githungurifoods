@@ -2,7 +2,7 @@ import { ArrowRight, MapPin, Phone, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import heroImage from '@/assets/hero-nyama-choma.jpg';
+import heroImage from '@/assets/hero-nyama-choma.jpeg';
 import restaurantImage from '@/assets/restaurant-interior.jpg';
 
 const Homepage = () => {
