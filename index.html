@@ -6,74 +6,323 @@
     <title>Githunguri Foods - Authentic Kenyan Cuisine & Nyama Choma</title>
     <meta name="description" content="Experience authentic Kenyan cuisine at Githunguri Foods. Specializing in traditional nyama choma, ugali, mukimo and fresh local dishes." />
     <meta name="author" content="Githunguri Foods" />
-
-    <!-- Favicon -->
-    <link rel="icon" href="/images/githunguri foods_page-0001.jpg" type="image/jpg">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Githunguri Foods - Authentic Kenyan Cuisine & Nyama Choma" />
-    <meta property="og:description" content="Experience authentic Kenyan cuisine at Githunguri Foods. Specializing in traditional nyama choma, ugali, mukimo and fresh local dishes." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/images/githunguri foods_page-0001.jpg" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Githunguri Foods - Authentic Kenyan Cuisine" />
-    <meta name="twitter:description" content="Experience authentic Kenyan cuisine at Githunguri Foods. Specializing in traditional nyama choma and fresh local dishes." />
-    <meta name="twitter:image" content="/images/githunguri foods_page-0001.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+      :root {
+        --primary: #e67e22;
+        --primary-dark: #d35400;
+        --text: #2c3e50;
+        --text-light: #7f8c8d;
+        --bg: #f9f9f9;
+        --white: #ffffff;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      
+      /* Logo Styles */
+      .logo-container {
+        position: fixed;
+        top: 1.5rem;
+        left: 2rem;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        transform: translateY(-10px);
+        opacity: 0;
+        animation: slideDown 0.5s 0.3s forwards;
+        transition: var(--transition);
+      }
+      
+      .logo-container:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+      
+      .logo-img {
+        height: 50px;
+        width: auto;
+        border-radius: 8px;
+        margin-right: 0.75rem;
+        border: 2px solid var(--white);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .logo-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1.2;
+      }
+      
+      .logo-subtitle {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        font-weight: 500;
+      }
+      
+      /* Video Overlay */
+      .video-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 2000;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      .video-overlay.active {
+        display: flex;
+        opacity: 1;
+      }
+      
+      .video-container {
+        position: relative;
+        width: 90%;
+        max-width: 1000px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        transform: scale(0.95);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+      }
+      
+      .video-overlay.active .video-container {
+        transform: scale(1);
+        opacity: 1;
+      }
+      
+      #restaurant-video {
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
+        display: block;
+        border: none;
+      }
+      
+      .close-video {
+        position: absolute;
+        top: -45px;
+        right: 0;
+        background: var(--primary);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 24px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        z-index: 2001;
+      }
+      
+      .close-video:hover {
+        background: var(--primary-dark);
+        transform: rotate(90deg);
+      }
+      
+      /* Play Button */
+      .play-button {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: var(--primary);
+        color: white;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(230, 126, 34, 0.3);
+        z-index: 999;
+        transition: var(--transition);
+        animation: pulse 2s infinite;
+      }
+      
+      .play-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 15px 40px rgba(230, 126, 34, 0.4);
+      }
+      
+      .play-icon {
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-left: 25px solid white;
+        border-bottom: 15px solid transparent;
+        margin-left: 5px;
+      }
+      
+      /* Animations */
+      @keyframes slideDown {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(230, 126, 34, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(230, 126, 34, 0);
+        }
+      }
+      
+      /* Responsive */
+      @media (max-width: 768px) {
+        .logo-container {
+          left: 50%;
+          transform: translateX(-50%) translateY(-10px);
+          padding: 0.5rem;
+          width: 90%;
+          max-width: 300px;
+          justify-content: center;
+        }
+        
+        .logo-img {
+          height: 40px;
+          margin-right: 0.5rem;
+        }
+        
+        .logo-title {
+          font-size: 1rem;
+        }
+        
+        .logo-subtitle {
+          font-size: 0.7rem;
+        }
+        
+        .play-button {
+          width: 60px;
+          height: 60px;
+          bottom: 1.5rem;
+          right: 1.5rem;
+        }
+      }
+    </style>
   </head>
 
   <body>
-    <!-- Logo in the top-left corner -->
-    <div style="position: fixed; top: 20px; left: 20px; z-index: 1000;">
+    <!-- Logo -->
+    <div class="logo-container">
       <img 
         src="/images/githunguri foods_page-0001.jpg" 
         alt="Githunguri Foods Logo" 
-        style="height: 60px; width: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"
+        class="logo-img"
       >
+      <div class="logo-text">
+        <span class="logo-title">GITHUNGURI</span>
+        <span class="logo-subtitle">Fresh Quality Foods</span>
+      </div>
+    </div>
+
+    <!-- Play Button -->
+    <div class="play-button" id="play-button">
+      <div class="play-icon"></div>
     </div>
 
     <div id="root"></div>
     
-    <!-- Video Section (will be hidden by default and shown in the React app) -->
-    <div id="video-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center;">
-      <button id="close-video" style="position: absolute; top: 20px; right: 20px; background: #fff; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 24px; cursor: pointer; z-index: 2001;">&times;</button>
-      <video id="restaurant-video" controls style="max-width: 90%; max-height: 90%;">
-        <source src="/images/WhatsApp Video 2025-07-11 at 14.10.44.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <!-- Video Overlay -->
+    <div class="video-overlay" id="video-overlay">
+      <button class="close-video" id="close-video">&times;</button>
+      <div class="video-container">
+        <video id="restaurant-video" controls>
+          <source src="/images/WhatsApp Video 2025-07-11 at 14.10.44.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
 
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Video Player Script -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const videoOverlay = document.getElementById('video-overlay');
         const videoPlayer = document.getElementById('restaurant-video');
         const closeVideo = document.getElementById('close-video');
+        const playButton = document.getElementById('play-button');
         
-        // Show video when the page loads (you can also trigger this with a button click)
-        setTimeout(() => {
-          videoOverlay.style.display = 'flex';
-          videoPlayer.play().catch(e => console.log('Auto-play was prevented:', e));
-        }, 2000);
+        // Show video when play button is clicked
+        playButton.addEventListener('click', function() {
+          videoOverlay.classList.add('active');
+          setTimeout(() => {
+            videoPlayer.play().catch(e => console.log('Playback failed:', e));
+          }, 300);
+        });
         
         // Close video when clicking the close button
-        closeVideo.addEventListener('click', function() {
-          videoOverlay.style.display = 'none';
-          videoPlayer.pause();
-          videoPlayer.currentTime = 0;
+        closeVideo.addEventListener('click', function(e) {
+          e.stopPropagation();
+          closeVideoPlayer();
         });
         
         // Close video when clicking outside the video
         videoOverlay.addEventListener('click', function(e) {
           if (e.target === videoOverlay) {
-            videoOverlay.style.display = 'none';
-            videoPlayer.pause();
-            videoPlayer.currentTime = 0;
+            closeVideoPlayer();
           }
         });
+        
+        // Close video when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            closeVideoPlayer();
+          }
+        });
+        
+        function closeVideoPlayer() {
+          videoOverlay.classList.remove('active');
+          videoPlayer.pause();
+          videoPlayer.currentTime = 0;
+        }
+        
+        // Auto-show video after 5 seconds (optional)
+        // setTimeout(() => {
+        //   playButton.click();
+        // }, 5000);
       });
     </script>
   </body>
