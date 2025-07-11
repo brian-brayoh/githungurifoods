@@ -9,19 +9,19 @@ const videos = [
   {
     id: 1,
     title: 'Nyama Choma Grilling',
-    src: encodeURI('/images/WhatsApp Video 2025-07-11 at 14.10.44 (1).mp4'),
+    src: '/images/WhatsApp Video 2025-07-11 at 14.10.44 (1).mp4',
     thumbnail: heroImage, // You might want to add actual thumbnails later
   },
   {
     id: 2,
     title: 'Restaurant Ambience',
-    src: encodeURI('/images/WhatsApp Video 2025-07-11 at 14.10.44.mp4'),
+    src: '/images/WhatsApp Video 2025-07-11 at 14.10.44.mp4',
     thumbnail: restaurantImage,
   },
   {
     id: 3,
     title: 'Food Preparation',
-    src: encodeURI('/images/WhatsApp Video 2025-07-11 at 14.10.45.mp4'),
+    src: '/images/WhatsApp Video 2025-07-11 at 14.10.45.mp4',
     thumbnail: restaurantImage,
   },
 ];
@@ -36,9 +36,6 @@ const Homepage = () => {
       readyState: video.readyState
     });
   };
-
-  // Test video with direct path
-  const testVideoPath = '/images/WhatsApp Video 2025-07-11 at 14.10.44 (1).mp4';
 
   return (
     <div className="min-h-screen">
@@ -76,24 +73,6 @@ const Homepage = () => {
                 </Button>
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Test Video Section */}
-      <section className="py-8 bg-gray-100">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-4">Test Video</h2>
-          <div className="bg-white p-4 rounded-lg shadow">
-            <p className="mb-2">Testing video path: {testVideoPath}</p>
-            <video 
-              className="w-full max-w-lg mx-auto"
-              controls
-              onError={handleVideoError}
-            >
-              <source src={testVideoPath} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
           </div>
         </div>
       </section>
