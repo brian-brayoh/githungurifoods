@@ -29,8 +29,16 @@ const videos = [
 const Homepage = () => {
   const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const video = e.target as HTMLVideoElement;
-    console.error('Error loading video:', video.error);
+    console.error('Video error:', {
+      error: video.error,
+      src: video.currentSrc,
+      networkState: video.networkState,
+      readyState: video.readyState
+    });
   };
+
+  // Test video with direct path
+  const testVideoPath = '/images/WhatsApp Video 2025-07-11 at 14.10.44 (1).mp4';
 
   return (
     <div className="min-h-screen">
@@ -68,6 +76,24 @@ const Homepage = () => {
                 </Button>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Test Video Section */}
+      <section className="py-8 bg-gray-100">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-4">Test Video</h2>
+          <div className="bg-white p-4 rounded-lg shadow">
+            <p className="mb-2">Testing video path: {testVideoPath}</p>
+            <video 
+              className="w-full max-w-lg mx-auto"
+              controls
+              onError={handleVideoError}
+            >
+              <source src={testVideoPath} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </section>
