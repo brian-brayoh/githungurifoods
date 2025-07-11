@@ -1,8 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import traditionalMealImage from '@/assets/traditional-meal.jpg';
-import logoImage from '@/assets/logo.png';
-import grilledMeatImage from '@/assets/grilled-meat.jpg';
 
 const Menu = () => {
   const menuCategories = [
@@ -140,25 +137,58 @@ const Menu = () => {
 
   return (
     <div className="min-h-screen py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Hero Section with Logo and Food Image */}
-        <div className="mb-12 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="w-full md:w-1/2">
-            <img 
-              src={logoImage} 
-              alt="GITHUNGURI Fresh Quality Foods" 
-              className="w-full max-w-md mx-auto"
-            />
+      {/* Hero Section with Images */}
+      <div className="mb-12 px-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Logo and Welcome Text */}
+          <div className="text-center md:text-left">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              GITHUNGURI
+              <span className="block text-2xl md:text-3xl text-primary mt-2">Fresh Quality Foods</span>
+            </h1>
+            <p className="text-lg text-muted-foreground mb-6">
+              Experience authentic Kenyan flavors with our signature grilled specialties and traditional dishes
+            </p>
           </div>
-          <div className="w-full md:w-1/2">
+          
+          {/* Main Food Image */}
+          <div className="relative rounded-xl overflow-hidden shadow-xl h-80 md:h-96">
             <img 
-              src={grilledMeatImage} 
-              alt="Delicious grilled meats from GITHUNGURI" 
-              className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
+              src="/images/githunguri foods_page-0001.jpg" 
+              alt="Githunguri Fresh Foods"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
 
+        {/* Additional Images Grid */}
+        <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4 max-w-7xl mx-auto">
+          <div className="rounded-lg overflow-hidden h-48">
+            <img 
+              src="/images/WhatsApp Image 2025-07-11 at 14.10.43.jpeg" 
+              alt="Delicious food from Githunguri"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="rounded-lg overflow-hidden h-48">
+            <img 
+              src="/images/WhatsApp Image 2025-07-11 at 14.10.43.jpeg" 
+              alt="Fresh ingredients"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="hidden md:block rounded-lg overflow-hidden h-48">
+            <img 
+              src="/images/WhatsApp Image 2025-07-11 at 14.10.43.jpeg" 
+              alt="Our restaurant"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Menu Categories */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -172,7 +202,7 @@ const Menu = () => {
           {/* Featured Image */}
           <div className="max-w-2xl mx-auto mb-12">
             <img 
-              src={traditionalMealImage} 
+              src="/images/githunguri foods_page-0001.jpg" 
               alt="Traditional Kenyan Meal"
               className="w-full h-[300px] object-cover rounded-lg shadow-warm"
             />
